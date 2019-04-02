@@ -1,7 +1,6 @@
 # ember-octane-monopoly
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This is a monopoly game built with EmberJS Octane edition.
 
 ## Prerequisites
 
