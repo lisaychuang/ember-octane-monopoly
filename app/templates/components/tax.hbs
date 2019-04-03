@@ -1,0 +1,14 @@
+<div class="space fee 
+    {{if (eq @name "income") "income-tax" "luxury-tax"}}">
+    <div class="container">
+        <div class="name">{{get-name @name}}</div>
+        <div class="{{if (eq @name "income") "diamond" "drawing far fa-gem"}}"></div>
+        <div class="instructions">
+            {{#if (eq @name "income")}}
+            Pay 10%<br>or<br>$200
+            {{else}}
+            Pay $75.00
+            {{/if}}
+            </div>
+    </div>
+</div>
