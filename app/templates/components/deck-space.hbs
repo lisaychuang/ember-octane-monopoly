@@ -1,0 +1,10 @@
+
+<div class="space {{if (eq @name "communityChest") "community-chest" "chance"}}">
+    <div class="container">
+        <div class="name">{{get-name @name}}</div>
+        <i class="drawing fa {{if (eq @name "communityChest") "fa-cube" "fa-question blue"}}"></i>
+        {{#if (eq @name "communityChest")}}
+        <div class="instructions">Follow instructions on top card</div>
+        {{/if}}
+    </div>
+</div>
