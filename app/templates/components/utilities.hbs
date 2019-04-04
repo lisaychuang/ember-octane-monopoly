@@ -1,7 +1,10 @@
-<div class="space utility 
+<div class="space utility playerA-ownership 
     {{if (eq @name "electric") "electric-company" "waterworks"}}">
     <div class="container">
         <div class="name">{{get-name @name}}</div>
+
+        <div class="ownership">_</div>
+        
         <i class="drawing {{if (eq @name "electric") "far fa-lightbulb" "fas fa-tint"}}"></i>
         <div class="price">Price {{if (eq @name "electric") "$150" "$120"}}</div>
     </div>
