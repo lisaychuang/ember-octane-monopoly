@@ -432,7 +432,7 @@
     color: rgb(97, 8, 240);
   }
 
-  .community-chest-deck-drawing  {
+  .community-chest-deck-drawing {
     font-size:100px;
     padding-top: 5px;
     padding-left: 20%;
@@ -440,10 +440,20 @@
     color: #d2eaf5;
   }
 
-  .chance-deck-drawing  {
+  .chance-deck-drawing {
     font-size:100px;
     padding-top: 5px;
     padding-left: 20%;
     padding-right: 20%;
     color: rgb(243, 134, 152);
+  }
+
+  .ownership {
+    position: absolute; 
+    top: -26px; 
+    left: 15px; 
+    right: 15px; 
+    border-radius: 10px;
+    border: 1px dotted black;
+    color: white;
   }
