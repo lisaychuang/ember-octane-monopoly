@@ -1,3 +1,4 @@
+/* Original CSS for monopoly board */
 * {
     box-sizing: border-box;
   }
@@ -412,4 +413,19 @@
   .three-line-name {
     position: relative;
     top: 5px;
+  }
+
+  /* Dice css */
+  .roll-dice {
+    grid-column: 1/9;
+    grid-row: 5;
+    font-size: 80px;
+    color: rgb(97, 8, 240);
+  }
+
+  .display-dice {
+    grid-column: 1/9;
+    grid-row: 6;
+    font-size: 50px;
+    color: rgb(97, 8, 240);
   }
