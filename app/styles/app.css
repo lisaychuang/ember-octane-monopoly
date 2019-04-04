@@ -358,7 +358,8 @@
   } */
   .chance .blue {
     font-size: 90px;
-    color: #5a6dba;
+    color: rgb(243, 134, 152);
+    padding-top: 5px;
   }
   
   .community-chest .container {
@@ -444,5 +445,5 @@
     padding-top: 5px;
     padding-left: 20%;
     padding-right: 20%;
-    color: #5a6dba;
+    color: rgb(243, 134, 152);
   }
