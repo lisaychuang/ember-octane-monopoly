@@ -1,4 +1,10 @@
 <div class="{{if (eq @name "communityChest") "community-chest-deck" "chance-deck"}}">
     <h2 class="label">{{get-name @name}}</h2>
-    <div class="deck"></div>
+    <div class="deck">
+        {{#if (eq @name "communityChest")}}
+            <i class="community-chest-deck-drawing fas fa-sticky-note"></i>
+        {{else}}
+            <i class="chance-deck-drawing fas fa-sticky-note"></i>
+        {{/if}}
+    </div>
 </div>

@@ -352,11 +352,12 @@
   .chance .container {
     justify-content: center;
   }
-  .chance .drawing {
+  /* .chance .drawing {
     font-size: 90px;
     color: #f50c2b;
-  }
+  } */
   .chance .blue {
+    font-size: 90px;
     color: #5a6dba;
   }
   
@@ -428,4 +429,20 @@
     grid-row: 6;
     font-size: 50px;
     color: rgb(97, 8, 240);
+  }
+
+  .community-chest-deck-drawing  {
+    font-size:100px;
+    padding-top: 5px;
+    padding-left: 20%;
+    padding-right: 20%;
+    color: #d2eaf5;
+  }
+
+  .chance-deck-drawing  {
+    font-size:100px;
+    padding-top: 5px;
+    padding-left: 20%;
+    padding-right: 20%;
+    color: #5a6dba;
   }
