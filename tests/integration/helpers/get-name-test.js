@@ -10,7 +10,7 @@ module('Integration | Helper | get-name', function(hooks) {
   test('it renders', async function(assert) {
     this.set('inputValue', '1234');
 
-    await render(hbs`{{get-name inputValue}}`);
+    await render(hbs`{{get-value inputValue}}`);
 
     assert.equal(this.element.textContent.trim(), '1234');
   });

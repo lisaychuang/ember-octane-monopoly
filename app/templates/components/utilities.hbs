@@ -1,14 +1,14 @@
 <div class="space utility
-    {{if (eq (get-name @board-position 'name') "Electric Company") "electric-company" "waterworks"}}">
+    {{if (eq (get-value @board-position 'name') "Electric Company") "electric-company" "waterworks"}}">
 
     <div class="container">
-        <div class="name">{{get-name @board-position 'name'}}</div>
+        <div class="name">{{get-value @board-position 'name'}}</div>
 
         <div class="ownership">_</div>
         
         <i class="drawing 
-        {{if (eq (get-name @board-position 'name') "Electric Company") "far fa-lightbulb" "fas fa-tint"}}"></i>
+        {{if (eq (get-value @board-position 'name') "Electric Company") "far fa-lightbulb" "fas fa-tint"}}"></i>
 
-        <div class="price">Price {{get-name @board-position 'price'}}</div>
+        <div class="price">Price {{get-value @board-position 'price'}}</div>
     </div>
 </div>

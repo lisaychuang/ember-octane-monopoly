@@ -1,15 +1,15 @@
 <div class="space fee 
-    {{if (eq (get-name @board-position 'name') "Income Tax") "income-tax" "luxury-tax"}}">
+    {{if (eq (get-value @board-position 'name') "Income Tax") "income-tax" "luxury-tax"}}">
 
     <div class="container">
-        <div class="name">{{get-name @board-position 'name'}}</div>
+        <div class="name">{{get-value @board-position 'name'}}</div>
 
         <div class="ownership">_</div>
 
-        <div class="{{if (eq (get-name @board-position 'name') "Income Tax") "diamond" "drawing far fa-gem"}}"></div>
+        <div class="{{if (eq (get-value @board-position 'name') "Income Tax") "diamond" "drawing far fa-gem"}}"></div>
         <div class="instructions">
 
-            {{#if (eq (get-name @board-position 'name') "Income Tax")}}
+            {{#if (eq (get-value @board-position 'name') "Income Tax")}}
 
             Pay 10%<br>or<br>$200
             {{else}}
