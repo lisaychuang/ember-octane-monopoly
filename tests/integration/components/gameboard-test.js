@@ -11,16 +11,8 @@ module('Integration | Component | gameboard', function(hooks) {
     // Handle any actions with this.set('myAction', function(val) { ... });
 
     await render(hbs`<Gameboard />`);
+    
+    assert.ok(this.element.textContent.trim().toLowerCase().includes('monopoly'), 'monopoly is on the board');
 
-    assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      <Gameboard>
-        template block text
-      </Gameboard>
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
   });
 });
