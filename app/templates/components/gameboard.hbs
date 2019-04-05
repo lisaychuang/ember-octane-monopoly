@@ -1,5 +1,7 @@
 <div class="table">
     <div class="board">
+
+        {{!-- Center of game board --}}
         <div class="center">
             <CenterDeck @name="communityChest" />
 
@@ -9,60 +11,65 @@
             <CenterDeck @name="chance" />
         </div>
 
-        <Go />
+        {{!-- Game starting position --}}
+        <Go @board-position='0'/>
 
+        {{!-- BOTTOM row --}}
         <div class="row horizontal-row bottom-row">
-            <Property @name="property5" />
-            <Property @name="property4" />
-            <DeckSpace @name="chance" />
-            <Property @name="property3" />
-            <Railroad @name="railroad1" />
-            <Tax @name="income" />
-            <Property @name="property2" />
-            <DeckSpace @name="communityChest" />
-            <Property @name="property1" />
+            <Property @board-position='9'/>
+            <Property @board-position='8'/>
+            <DeckSpace @board-position='7' />
+            <Property @board-position='6' />
+            <Railroad @board-position='5' />
+            <Tax @board-position='4'/>
+            <Property @board-position='3' />
+            <DeckSpace @board-position='2' />
+            <Property @board-position='1' />
         </div>
 
-        <Jail />
+        <Jail @board-position='10'/>
 
+        {{!-- LEFT row --}}
         <div class="row vertical-row left-row">
-            <Property @name="property11" />
-            <Property @name="property10" />
-            <DeckSpace @name="communityChest" />
-            <Property @name="property9" />
-            <Railroad @name="railroad2" />
-            <Property @name="property8" />
-            <Property @name="property7" />
-            <Utilities @name="electric" />
-            <Property @name="property6" />
+            <Property @board-position='19' />
+            <Property @board-position='18' />
+            <DeckSpace @board-position='17' />
+            <Property @board-position='16' />
+            <Railroad @board-position='15' />
+            <Property @board-position='14' />
+            <Property @board-position='13' />
+            <Utilities @board-position='12' />
+            <Property @board-position='11' />
         </div>
 
-        <FreeParking />
+        <FreeParking @board-position='20'/>
 
+        {{!-- TOP row --}}
         <div class="row horizontal-row top-row">
-            <Property @name="property12" />
-            <DeckSpace @name="chance" />
-            <Property @name="property13" />
-            <Property @name="property14" />
-            <Railroad @name="railroad3" />
-            <Property @name="property15" />
-            <Property @name="property16" />
-            <Utilities @name="waterworks" />
-            <Property @name="property17" />
+            <Property @board-position='21' />
+            <DeckSpace @board-position='20' />
+            <Property @board-position='23' />
+            <Property @board-position='24' />
+            <Railroad @board-position='25' />
+            <Property @board-position='26' />
+            <Property @board-position='27' />
+            <Utilities @board-position='28' />
+            <Property @board-position='29' />
         </div>
 
-        <GoToJail />
+        <GoToJail @board-position='30'/>
 
+        {{!-- RIGHT row --}}
         <div class="row vertical-row right-row">
-            <Property @name="property17" />
-            <Property @name="property18" />
-            <DeckSpace @name="communityChest" />
-            <Property @name="property19" />
-            <Railroad @name="railroad4" />
-            <DeckSpace @name="chance" />
-            <Property @name="property21" />
-            <Tax @name="luxury" />
-            <Property @name="property22" />
+            <Property @board-position='31' />
+            <Property @board-position='32' />
+            <DeckSpace @board-position='33' />
+            <Property @board-position='34' />
+            <Railroad @board-position='35' />
+            <DeckSpace @board-position='36' />
+            <Property @board-position='37' />
+            <Tax @board-position='38'/>
+            <Property @board-position='39' />
         </div>
     </div>
 </div>
