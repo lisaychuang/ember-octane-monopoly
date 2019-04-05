@@ -1,7 +1,9 @@
-<div class="{{if (eq @name "communityChest") "community-chest-deck" "chance-deck"}}">
-    <h2 class="label">{{get-name @name}}</h2>
+<div class="{{if (eq @deck-name "communityChest") "community-chest-deck" "chance-deck"}}">
+    <h2 class="label">
+        {{if (eq @deck-name "communityChest") "Community Chest" "Chance"}}</h2>
+
     <div class="deck">
-        {{#if (eq @name "communityChest")}}
+        {{#if (eq @deck-name "communityChest")}}
             <i class="community-chest-deck-drawing fas fa-sticky-note"></i>
         {{else}}
             <i class="chance-deck-drawing fas fa-sticky-note"></i>
