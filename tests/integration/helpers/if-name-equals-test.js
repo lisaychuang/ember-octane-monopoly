@@ -8,10 +8,12 @@ module('Integration | Helper | if-name-equals', function(hooks) {
 
   // Replace this with your real tests.
   test('it renders', async function(assert) {
-    this.set('inputValue', '1234');
-
-    await render(hbs`{{if-name-equals inputValue}}`);
-
-    assert.equal(this.element.textContent.trim(), '1234');
+    this.set('inputValue', '5');
+    
+    await render(hbs`{{if-name-equals this.inputValue 'Reading Railroad' 'Yes' 'No'}}`);
+    
+    assert.equal(this.element.textContent.trim(), 'Yes', 'True test case');
+    this.set('inputValue', '38');
+    assert.equal(this.element.textContent.trim(), 'No', 'False test case');
   });
 });
