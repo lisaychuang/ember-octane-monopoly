@@ -1,4 +1,10 @@
-<button class="roll-dice" onclick={{action @roll}}><i class="fas fa-dice"></i></button>
+{{!-- Player can roll dice if is their turn, and if they roll a Double  --}}
+<button disabled={{not @disabled}} 
+        class="roll-dice" onclick={{action @roll}}>
+    <i class="fas fa-dice"></i>
+</button>
+
+{{!-- Show Dice value --}}
 <span class="display-dice">
     {{get @currentDice 0}},
     {{get @currentDice 1}} = {{@diceTotal}}
