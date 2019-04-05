@@ -1,3 +1,6 @@
+
+<button onClick={{@game.endTurn}}> End turn</button>
+
 <div class="table">
     <div class="board">
 
@@ -5,14 +8,14 @@
         <div class="center">
             <CenterDeck @deck-name="communityChest" />
 
-            <h1 class="title">MONOPOLY</h1>
+            <h1 class="title">MONOPOLY | {{@game.currentPlayerId}} {{@game.currentPlayer.positionOnBoard}}</h1>
             <Dice
                 @currentDice={{@game.dice.current}}
                 @isDouble={{@game.dice.isDouble}}
                 @diceTotal={{@game.dice.total}}
-                @roll={{@game.dice.roll}}
+                @roll={{@game.rollForCurrentPlayer}}
                 />
-
+            
             <CenterDeck @name="chance" />
         </div>
         <h4>{{@game.numPlayers}} in this game!</h4>
