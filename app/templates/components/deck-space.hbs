@@ -1,14 +1,15 @@
-<div class="space 
-    {{if (eq (get-value @board-position 'name') "Community Chest") "community-chest" "chance"}}"> {{!--Comm chest or chance--}}
+<div class="space s
+    {{if-name-equals @board-position 'Community Chest' "community-chest" "chance"}}">
 
     <div class="container">
         <div class="name">{{get-value @board-position 'name'}}</div> 
 
         <div class="ownership">_</div>
 
-        {{!-- Helper to determine icon --}}
-        <i class="drawing fa {{if (eq (get-value @board-position 'name') "Community Chest") "fa-cube" "fa-question blue"}}"></i>
-        
+        {{!-- Determine icon to display --}}
+        <i class="drawing fa {{if-name-equals @board-position 'Community Chest' "fa-cube" "fa-question blue"}}"></i>
+
+
         {{!-- Only display if this is a Comm Chest space --}}
         {{#if (eq (get-value @board-position 'name') "Community Chest")}}
         <div class="instructions">Follow instructions on top card</div>

@@ -1,12 +1,12 @@
 <div class="space fee 
-    {{if (eq (get-value @board-position 'name') "Income Tax") "income-tax" "luxury-tax"}}">
+    {{if-name-equals @board-position "Income Tax" "income-tax" "luxury-tax"}}">
 
     <div class="container">
         <div class="name">{{get-value @board-position 'name'}}</div>
 
         <div class="ownership">_</div>
 
-        <div class="{{if (eq (get-value @board-position 'name') "Income Tax") "diamond" "drawing far fa-gem"}}"></div>
+        <div class="{{if-name-equals @board-position "Income Tax" "diamond" "drawing far fa-gem"}}"></div>
         <div class="instructions">
 
             {{#if (eq (get-value @board-position 'name') "Income Tax")}}
