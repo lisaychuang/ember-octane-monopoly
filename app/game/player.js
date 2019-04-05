@@ -1,22 +1,30 @@
 import { tracked } from '@glimmer/tracking';
-// import { action } from '@ember/object';
+import { action } from '@ember/object';
+import { getValue } from '../helpers/get-value';
 
 export default class Player {
     @tracked
     money = 1500
+
+    @tracked
     positionOnBoard = 0
+
+    @tracked
     properties = []; 
+
     constructor(name, token = '🐹') {
         this.name = name;
         this.token = token;
     }
 
-    nextPosition(dice) {
-        return this.positionOnBoard + dice[0] + dice[1];
+    @action
+    moveToNextPosition(diceTotal) {
+        this.positionOnBoard += diceTotal;
     }
 
-    doubleMoney() {
-        this.money *= 2;
-    }
+    // buyProperty(boardPosition) {
+    //     this.money -= getValue([boardPosition, 'price']);
+    //     this.properties.push()
+    // }
 }
 
