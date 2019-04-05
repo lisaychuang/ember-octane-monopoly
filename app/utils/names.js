@@ -16,7 +16,8 @@ export default {
         color: 'dark-purple'
     },
     4: {
-        name: 'Income Tax'
+        name: 'Income Tax',
+        price: 200
     },
     5: {
         name: 'Reading Railroad',
@@ -162,7 +163,8 @@ export default {
         color: 'dark-blue'
     },
     38: {
-        name: 'Luxury Tax'
+        name: 'Luxury Tax',
+        price: 75,
     },
     39: {
         streetName: 'Boardwalk',

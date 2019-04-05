@@ -11,9 +11,9 @@
 
             {{#if (eq (get-value @board-position 'name') "Income Tax")}}
 
-            Pay 10%<br>or<br>$200
+            Pay 10%<br>or<br>${{get-value @board-position 'price'}}
             {{else}}
-            Pay $75.00
+            Pay ${{get-value @board-position 'price'}}
             {{/if}}
         </div>
     </div>
