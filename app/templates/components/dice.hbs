@@ -1,2 +1,5 @@
-<button class="roll-dice" onclick={{action this.rollDice}}><i class="fas fa-dice"></i></button>
-<span class="display-dice">{{this.dice}} = {{this.sumDice}} </span>
+<button class="roll-dice" onclick={{action @roll}}><i class="fas fa-dice"></i></button>
+<span class="display-dice">
+    {{get @currentDice 0}},
+    {{get @currentDice 1}} = {{@diceTotal}}
+</span>

@@ -6,17 +6,22 @@
             <CenterDeck @deck-name="communityChest" />
 
             <h1 class="title">MONOPOLY</h1>
-            <Dice />
+            <Dice
+                @currentDice={{@game.dice.current}}
+                @isDouble={{@game.dice.isDouble}}
+                @diceTotal={{@game.dice.total}}
+                @roll={{@game.dice.roll}}
+                />
 
             <CenterDeck @name="chance" />
         </div>
-
+        <h4>{{@game.numPlayers}} in this game!</h4>
         {{!-- Game starting position --}}
         <Go @board-position='0'/>
 
         {{!-- BOTTOM row --}}
         <div class="row horizontal-row bottom-row">
-            <Property @board-position='9'/>
+            <Property @board-position='9' class="foo"/>
             <Property @board-position='8'/>
             <DeckSpace @board-position='7' />
             <Property @board-position='6' />
