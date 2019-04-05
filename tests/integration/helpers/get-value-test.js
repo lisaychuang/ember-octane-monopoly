@@ -8,10 +8,16 @@ module('Integration | Helper | get-name', function(hooks) {
 
   // Replace this with your real tests.
   test('it renders', async function(assert) {
-    this.set('inputValue', '1234');
+    this.set('inputValue', '38');
 
-    await render(hbs`{{get-value inputValue}}`);
+    await render(hbs`{{get (get-value this.inputValue) 'name'}}`);
 
-    assert.equal(this.element.textContent.trim(), '1234');
+    assert.equal(this.element.textContent.trim(), 'Luxury Tax');
+
+    this.set('inputValue', '40');
+
+    await render(hbs`{{get-value this.inputValue}}`);
+
+    assert.equal(this.element.textContent.trim(), '');
   });
 });
