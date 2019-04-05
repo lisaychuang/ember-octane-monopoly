@@ -3,7 +3,7 @@ import { helper } from '@ember/component/helper';
 import allNames from '../utils/names';
 
 
-export function getName(params/*, hash*/) {
+export function getValue(params/*, hash*/) {
   const key = params[0];
   const path = params[1];
   if (typeof path === 'undefined') {
@@ -13,4 +13,4 @@ export function getName(params/*, hash*/) {
   }
 }
 
-export default helper(getName);
+export default helper(getValue);
