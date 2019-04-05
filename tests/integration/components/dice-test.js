@@ -12,15 +12,12 @@ module('Integration | Component | dice', function(hooks) {
 
     await render(hbs`<Dice />`);
 
-    assert.equal(this.element.textContent.trim(), '');
+    assert.equal(this.element.textContent.trim(), '0,0 = 0');
 
-    // Template block usage:
-    await render(hbs`
-      <Dice>
-        template block text
-      </Dice>
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    const button = this.element.querySelector('button');
+    assert.ok(button, 'There is a button');
+    assert.ok(this.element.textContent.indexOf('0') >= 0, 'Yes zeroes before dice roll');
+    button.click();
+    assert.ok(this.element.textContent.indexOf('0') < 0, 'No zeroes after dice roll');
   });
 });
