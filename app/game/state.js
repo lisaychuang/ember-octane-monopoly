@@ -16,6 +16,9 @@ export default class State {
     
     @tracked
     dice = new Dice();
+
+    @tracked
+    isDiceRollAllowed = true;
     
     get numPlayers() {
         return this.players.length;
@@ -39,6 +42,9 @@ export default class State {
         const diceTot = this.dice.total;
         this.currentPlayer.moveToNextPosition(diceTot);
 
+        if (!this.dice.isDouble) {
+            this.isDiceRollAllowed = false;
+        }
         // this.endTurn();
     }
 
@@ -46,6 +52,8 @@ export default class State {
     endTurn() {
         if (this.currentPlayerId === this.players.length -1) this.currentPlayerId = 0;
         else this.currentPlayerId++;
+
+        this.isDiceRollAllowed = true;
     }
 
 
