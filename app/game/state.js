@@ -1,12 +1,13 @@
 import { tracked } from '@glimmer/tracking';
 import Player from './player';
 import Dice from './dice';
-// import { action } from '@ember/object';
+import { action } from '@ember/object';
 
 /**
  * Data that describes where the game is at
  */
 export default class State {
+
     @tracked
     players = [
         new Player('Mike'),
@@ -20,4 +21,35 @@ export default class State {
         return this.players.length;
     }
 
+    // Game need to show which player's turn it is
+    @tracked 
+    currentPlayerId = 0;
+    
+    get currentPlayer() {
+        return this.players[this.currentPlayerId];
+    }
+
+
+    // Game need to prompt player to throw dice
+    // Player need to be able to throw dice
+
+    @action
+    rollForCurrentPlayer (){
+        this.dice.roll();
+        const diceTot = this.dice.total;
+        this.currentPlayer.moveToNextPosition(diceTot);
+
+        // this.endTurn();
+    }
+
+    @action
+    endTurn() {
+        if (this.currentPlayerId === this.players.length -1) this.currentPlayerId = 0;
+        else this.currentPlayerId++;
+    }
+
+
+    // After diceRoll, player's token should move to new space
+        // IF space is empty, ask to buy?
+        // IF space is owned, pay rent
 }
