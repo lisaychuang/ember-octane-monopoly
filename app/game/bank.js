@@ -7,6 +7,11 @@ export default class Bank {
     hotelSupply = 20;
 
     @tracked
-    titleDeeds = [1, 3, 5, 6, 8, 9, 11, 12, 13, 14, 15, 16, 18, 19, 21, 23, 24, 25, 26, 27, 28, 29, 31, 32, 34, 35, 37, 39]
+    titleDeeds = [1, 3, 5, 6, 8, 9, 11, 12, 13, 14, 15, 16, 18, 19, 21, 23, 24, 25, 26, 27, 28, 29, 31, 32, 34, 35, 37]
+
+
+    // Bank should update titleDeeds after each sale
+
+    // Bank should update house / hotel supply after each sale
 
 }
