@@ -8,31 +8,33 @@ import { action } from '@ember/object';
  */
 export default class State {
 
+    // Initiate new player instances
     @tracked
     players = [
         new Player('Mike'),
         new Player('Lisa')
     ]
-    
-    @tracked
-    dice = new Dice();
-
-    @tracked
-    isDiceRollAllowed = true;
-    
-    get numPlayers() {
-        return this.players.length;
-    }
 
     // Game need to show which player's turn it is
     @tracked 
     currentPlayerId = 0;
-    
+
+    get numPlayers() {
+        return this.players.length;
+    }
+
     get currentPlayer() {
         return this.players[this.currentPlayerId];
     }
+    
+    // Initiate new dice instance
+    @tracked
+    dice = new Dice();
 
-
+    // Determine if player can roll dice
+    @tracked
+    isDiceRollAllowed = true;
+    
     // Game need to prompt player to throw dice
     // Player need to be able to throw dice
 
@@ -45,7 +47,6 @@ export default class State {
         if (!this.dice.isDouble) {
             this.isDiceRollAllowed = false;
         }
-        // this.endTurn();
     }
 
     @action
