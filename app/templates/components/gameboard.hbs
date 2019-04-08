@@ -19,7 +19,12 @@
                 @diceTotal={{@game.dice.total}}
                 @roll={{this.onDiceRoll}}
                 @disabled={{@game.isDiceRollAllowed}}  {{!-- Determine if dice roll button can be clicked --}}
-                />
+            />
+
+            {{!-- Display GOOJ options IF current player is in jail --}}
+            {{#if (and @game.currentPlayer.isInJail @game.isDiceRollAllowed)}}
+            <GetOutOfJail @player={{@game.currentPlayer}}/>
+            {{/if}}
             
             <CenterDeck @name="chance" />
         </div>

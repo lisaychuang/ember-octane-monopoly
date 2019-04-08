@@ -1,0 +1,11 @@
+{{#if (gt @player.numGetOutOfJailCard 0)}}
+<button onClick={{action this.useGOOJcard}}>
+    Use GOOJ card
+</button>
+{{/if}}
+
+{{#if (gt @player.money 50)}}
+<button onClick={{action this.payFine}}>
+    Pay $50 fine
+</button>
+{{/if}}
