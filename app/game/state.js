@@ -44,8 +44,18 @@ export default class State {
         const diceTot = this.dice.total;
         this.currentPlayer.moveToNextPosition(diceTot);
 
+        // if roll is NOT a double, player can't roll again 
         if (!this.dice.isDouble) {
             this.isDiceRollAllowed = false;
+        } 
+        // if current player already rolled 2x doubles, and the third roll is still a double
+        else if (this.dice.isDouble && this.currentPlayer.doublesCount >= 2) {
+            this.isDiceRollAllowed = false;
+            this.currentPlayer.tripleDoubleRolls();
+        } 
+        // if roll is a double, increase doublesCount by 1
+        else {
+            this.currentPlayer.doublesCount++;
         }
     }
 
