@@ -8,13 +8,16 @@
         <div class="center">
             <CenterDeck @deck-name="communityChest" />
 
-            <h1 class="title">MONOPOLY | {{@game.currentPlayer.name}} {{@game.currentPlayer.positionOnBoard}}</h1>
+            <h1 class="title">MONOPOLY | {{@game.currentPlayer.name}} 
+                                        {{@game.currentPlayer.positionOnBoard}} |
+                                        {{@game.currentPlayer.isInJail}}
+            </h1>
             
             <Dice
                 @currentDice={{@game.dice.current}}
                 @isDouble={{@game.dice.isDouble}}
                 @diceTotal={{@game.dice.total}}
-                @roll={{@game.rollForCurrentPlayer}}
+                @roll={{this.onDiceRoll}}
                 @disabled={{@game.isDiceRollAllowed}}  {{!-- Determine if dice roll button can be clicked --}}
                 />
             
