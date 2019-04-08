@@ -19,9 +19,11 @@ export default class Player {
     isInJail = false;
 
     // Only flip to "true" when player draws a "Get out of Jail" card
-    numGetOutOfJailCard = 0;
+    @tracked
+    numGetOutOfJailCard = 1;
 
     // Get out of jail double rolls
+    @tracked
     GOOJrolls = 0;
 
     constructor(name, token = '🐹') {
