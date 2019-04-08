@@ -64,39 +64,29 @@ export default class State {
       this.currentPlayer.isInJail
     );
     debugger;
-    if (this.currentPlayer.numGetOutOfJailCard > 0 ) {
-        // Has get out of Jail (GOOJ) card, and using it to get out
-      this.currentPlayer.numGetOutOfJailCard--; 
-      this.leaveJail();
 
-    } else {
-      // Does not have GOOJ card
-      if (this.currentPlayer.GOOJrolls < 3) {
-        // Have less than 3 tries at double rolls, player may attempt a roll for doubles
-        this.dice.roll(); // normally would call rollForCurrentPlayer, but that includes moving position on board
+    if (this.currentPlayer.GOOJrolls < 3) {
+      // Have less than 3 tries at double rolls, player may attempt a roll for doubles
+      this.dice.roll(); // normally would call rollForCurrentPlayer, but that includes moving position on board
 
-        // Roll Double to get out
-        if (this.dice.isDouble) {
-            // freedom!
-            this.leaveJail();
-          
-        } else {
-            // still in jail, good luck next turn
-            this.currentPlayer.GOOJrolls++;
-            this.isDiceRollAllowed = false;
-        }
-      }
-      else {
-        // Already had 3 tries at double rolls, must pay fine $50 and get out
-        this.currentPlayer.money -= 50;
-        this.isDiceRollAllowed = true;
+      // Roll Double to get out
+      if (this.dice.isDouble) {
+        // freedom!
         this.leaveJail();
+      } else {
+        // still in jail, good luck next turn
+        this.currentPlayer.GOOJrolls++;
+        this.isDiceRollAllowed = false;
       }
+    } else {
+      // Already had 3 tries at double rolls, must pay fine $50 and get out
+      this.currentPlayer.money -= 50;
+      this.isDiceRollAllowed = true;
+      this.leaveJail();
     }
   }
 
-  
-  leaveJail(){
+  leaveJail() {
     this.currentPlayer.isInJail = false;
     this.currentPlayer.GOOJrolls = 0;
 
