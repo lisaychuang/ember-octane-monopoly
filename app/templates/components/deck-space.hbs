@@ -7,7 +7,7 @@
         {{!-- Determine icon to display --}}
         <i class="drawing fa {{if-name-equals @board-position 'Community Chest' "fa-cube" "fa-question blue"}}"></i>
 
-        <PlayerToken />
+        <PlayerToken @position={{@board-position}}/>
 
         {{!-- Only display if this is a Comm Chest space --}}
         {{#if (eq (get-value @board-position 'name') "Community Chest")}}

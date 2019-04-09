@@ -9,7 +9,7 @@
                 <div class="bar"></div>
                 <i class="person far fa-frown"></i>
             </div>
-            <PlayerToken />
+            <PlayerToken @position="9.75"/>
             <div class="name">Jail</div>
             
         </div>
@@ -18,6 +18,6 @@
     </div>
 
     <div class="visiting-token">
-        <PlayerToken />
+        <PlayerToken @position={{@board-position}}/>
     </div>
 </div>
