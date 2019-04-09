@@ -2,7 +2,7 @@
     <div class="container">
         <div class="color-bar {{get-value @board-position 'color'}}"></div>
         <div class="name">{{get-value @board-position 'streetName'}}
-            <PlayerToken />
+            <PlayerToken @position={{@board-position}} />
 
         </div>
 
