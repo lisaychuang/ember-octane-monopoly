@@ -1,5 +1,5 @@
 
-<button onClick={{@game.endTurn}}> End turn</button>
+{{!-- <button onClick={{@game.endTurn}}> End turn</button> --}}
 
 <div class="table">
     <div class="board">
@@ -8,15 +8,18 @@
         <div class="center">
             <CenterDeck @deck-name="communityChest" />
 
-            <h1 class="title">MONOPOLY | {{@game.currentPlayer.name}} 
-                                        {{@game.currentPlayer.positionOnBoard}} |
-                                        {{@game.currentPlayer.isInJail}}
-            </h1>
+            <h1 class="title">MONOPOLY</h1>
+            <span class="player-details"> {{@game.currentPlayer.name}} | 
+                Pos: {{@game.currentPlayer.positionOnBoard}} 
+                <button class="display-end-turn" onClick={{@game.endTurn}}>End turn</button>
+            </span>
+            
             
             <Dice
                 @currentDice={{@game.dice.current}}
                 @isDouble={{@game.dice.isDouble}}
                 @diceTotal={{@game.dice.total}}
+                @endTurn={{@game.endTurn}}
                 @roll={{this.onDiceRoll}}
                 @disabled={{@game.isDiceRollAllowed}}  {{!-- Determine if dice roll button can be clicked --}}
             />
