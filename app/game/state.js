@@ -10,7 +10,7 @@ import { assert } from "@ember/debug";
 export default class State {
   // Initiate new player instances
   @tracked
-  players = [new Player("Mike"), new Player("Lisa")];
+  players = [new Player("Mike", "car"), new Player("Lisa", "dog")];
 
   // Game need to show which player's turn it is
   @tracked
@@ -48,7 +48,7 @@ export default class State {
     // if current player already rolled 2x doubles, and the third roll is still a double
     else if (this.dice.isDouble && this.currentPlayer.doublesCount >= 2) {
       this.isDiceRollAllowed = false;
-      this.currentPlayer.tripleDoubleRolls();
+      this.currentPlayer.goToJail();
     }
     // if roll is a double, increase doublesCount by 1
     else {
@@ -63,8 +63,6 @@ export default class State {
       "getOutOfJail should only be called while current player is in jail",
       this.currentPlayer.isInJail
     );
-    debugger;
-
     if (this.currentPlayer.GOOJrolls < 3) {
       // Have less than 3 tries at double rolls, player may attempt a roll for doubles
       this.dice.roll(); // normally would call rollForCurrentPlayer, but that includes moving position on board
@@ -89,6 +87,7 @@ export default class State {
   leaveJail() {
     this.currentPlayer.isInJail = false;
     this.currentPlayer.GOOJrolls = 0;
+    this.currentPlayer.positionOnBoard = 10;
 
     // TODO: do we want the player to be involved in "rolling" to move? This is automatic
     this.rollForCurrentPlayer();
