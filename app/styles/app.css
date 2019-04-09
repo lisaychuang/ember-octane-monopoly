@@ -185,9 +185,9 @@
     padding-right: 15px;
   }
   .space .price {
-    font-size: 7px;
+    font-size: 10px;
     font-weight: 400;
-    padding-bottom: 5px;
+    padding-bottom: 2px;
   }
   
   .corner .container {
@@ -204,7 +204,7 @@
     border-bottom: 2px solid #080808;
   }
   .property .name {
-    padding-bottom: 50px;
+    padding-bottom: 66px;
   }
   
   .railroad .name {
@@ -477,4 +477,52 @@
     border-radius: 10px;
     border: 1px dotted black;
     color: white;
+  }
+
+  /* CSS styles for player-tokens */
+
+  .player-tokens {
+    font-size: 15px;
+    color: green;
+  }
+
+  .space .player-tokens {
+    font-size: 15px;
+    color: green;
+    position: absolute; 
+    top: 58px; 
+    left: 15px; 
+    right: 15px; 
+  }
+
+  .space .player-tokens {
+    font-size: 15px;
+    color: green;
+    position: absolute; 
+    top: 58px; 
+    left: 15px; 
+    right: 15px; 
+  }
+
+  .visiting-token {
+    grid-column-start: 1;
+    grid-row: 4;
+    position: relative;
+    grid-column-end: 12;
+  }
+
+  .jail .drawing .player-tokens {
+    top: 20px;
+    color: red;
+  }
+
+  /* CSS style for property price div */
+
+  .property-price {
+    font-size: 10px;
+    font-weight: 400;
+    position: absolute; 
+    top: 107px; 
+    left: 15px; 
+    right: 15px; 
   }
