@@ -41,8 +41,11 @@ export default {
         price: 120,
         color: 'light-blue'
     },
+    9.75: {
+        name: 'Jail' // In Jail
+    },
     10: {
-        name: 'Jail'  // In jail / Just visiting
+        name: 'Visiting'  //Just visiting
     },
     11: {
         streetName: 'St. Charles Place',
