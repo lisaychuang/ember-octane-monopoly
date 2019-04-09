@@ -1,11 +1,13 @@
 import Component from "@glimmer/component";
+import { inject as service } from "@ember/service";
 
 export default class PlayerTokenComponent extends Component {
+  // inject current game state into this component
+  @service currentGame;
+
   // getter => arr of token types
   get visibleTokens() {
-    if (!this.args.game) return [];
-
-    const players = this.args.game.players;
+    const players = this.currentGame.game.players;
 
     // list of players that's on this space
     let playersOnSpace = players.filter(
@@ -16,5 +18,4 @@ export default class PlayerTokenComponent extends Component {
     return playersOnSpace.map(p => p.token);
   }
 
-  //
 }
