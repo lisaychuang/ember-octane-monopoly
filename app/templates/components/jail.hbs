@@ -9,8 +9,15 @@
                 <div class="bar"></div>
                 <i class="person far fa-frown"></i>
             </div>
-            <div class="name">{{get-value @board-position 'name'}}</div>
+            <PlayerToken />
+            <div class="name">Jail</div>
+            
         </div>
     </div>
-    <div class="visiting">Visiting</div>
+    <div class="visiting">{{get-value @board-position 'name'}}
+    </div>
+
+    <div class="visiting-token">
+        <PlayerToken />
+    </div>
 </div>

@@ -1,11 +1,14 @@
-<div class="space property">
+<div class="space property" ...attributes>
     <div class="container">
         <div class="color-bar {{get-value @board-position 'color'}}"></div>
-        <div class="name">{{get-value @board-position 'streetName'}}</div>
+        <div class="name">{{get-value @board-position 'streetName'}}
+            <PlayerToken />
+
+        </div>
 
         <div class="ownership">_</div>
 
-        <div class="price">
+        <div class="property-price">
             Price ${{get-value @board-position 'price'}}</div>
     </div>
 </div>
