@@ -41,6 +41,8 @@ export default class State {
     const diceTot = this.dice.total;
     this.currentPlayer.moveToNextPosition(diceTot);
 
+    this.currentPlayer.takeAction();
+
     // if roll is NOT a double, player can't roll again
     if (!this.dice.isDouble) {
       this.isDiceRollAllowed = false;
