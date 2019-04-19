@@ -34,7 +34,15 @@ export default class Player {
 
     @action
     moveToNextPosition(diceTotal) {
-       return this.positionOnBoard += diceTotal;
+       let nextPosition = this.positionOnBoard + diceTotal;
+
+    // if nextPosition > 39, player passes Go and need to collect $200 salary     
+       if (nextPosition > 39) {
+           this.money += 200;
+           this.positionOnBoard = nextPosition - 38;
+       } else {
+           this.positionOnBoard = nextPosition;
+       }
     }
 
     // IF player throws double 3x, go to jail: 
@@ -44,7 +52,7 @@ export default class Player {
         this.doublesCount = 0;
     }
 
-    // Player can buy property
+    // Player can take action depending on where they land
     takeAction(){
         let currentPosition = this.positionOnBoard;
 
@@ -84,12 +92,13 @@ export default class Player {
         }
     }
 
-    // Player should update titleDeeds after each purchase
+    // Player can buy property (if empty)
 
-    // buyProperty(boardPosition) {
-    //     this.money -= getValue([boardPosition, 'price']);
-    //     this.properties.push()
-    // }
+    buyProperty(position) {
+        let price = allNames[position].price;
+        this.money -= price;
+        this.titleDeeds.push(position);
+    }
 
     // Player's positionOnBoard resets after passing 38 (arrives at Go, which is position 0)
         // also receives $200 at this time
