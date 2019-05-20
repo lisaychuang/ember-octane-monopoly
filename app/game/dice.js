@@ -5,11 +5,10 @@ export default class Dice {
     @tracked
     current = [0, 0];
 
-    lastRolls = []
     get isDouble() {
         return this.current[0] === this.current[1];
     }
- 
+
     get total() {
         return this.current[0] + this.current[1];
     }
