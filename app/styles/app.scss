@@ -1,3 +1,6 @@
+@import "ember-modal-dialog/ember-modal-structure";
+@import "ember-modal-dialog/ember-modal-appearance";
+
 /* Original CSS for monopoly board */
 * {
     box-sizing: border-box;
@@ -486,13 +489,12 @@
     color: green;
   }
 
-  .space .player-tokens {
-    font-size: 15px;
-    color: green;
-    position: absolute; 
-    top: 58px; 
-    left: 15px; 
-    right: 15px; 
+  .space .player-tokens.token-count-1 {
+    font-size: 30px;
+  }
+  
+  .space .player-tokens.token-count-2 {
+    font-size: 25px;
   }
 
   .space .player-tokens {
