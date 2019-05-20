@@ -33,10 +33,18 @@ function buildPropertyStates() {
   return data;
 }
 
+class GameUI {
+  @tracked
+  showPropertyManagerModal = false;
+}
+
 /**
  * Data that describes where the game is at
  */
 export default class State {
+
+  @tracked
+  ui = new GameUI();
 
   @tracked
   propertyStates = buildPropertyStates();
