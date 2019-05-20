@@ -41,7 +41,8 @@ export default {
     },
     4: {
         name: 'Income Tax',
-        price: 200
+        price: 200,
+        isTax: true
     },
     5: {
         name: 'Reading Railroad',
@@ -472,6 +473,7 @@ export default {
     38: {
         name: 'Luxury Tax',
         price: 75,
+        isTax: true
     },
     39: {
         streetName: 'Boardwalk',
