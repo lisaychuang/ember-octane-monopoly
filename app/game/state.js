@@ -1,13 +1,46 @@
 import { tracked } from "@glimmer/tracking";
 import Player from "./player";
 import Dice from "./dice";
+import Property from "./property";
+
 import { action } from "@ember/object";
 import { assert } from "@ember/debug";
+import propertyData from '../utils/names';
+
+// SET UP Property State
+function buildPropertyStates() {
+  // create an object to eventually return (it starts out empty)
+  // iterate over all of the KEYS of whatever's exported from 'game/utils/name.js'
+    // given a key from name.js, figure out if it is state-worthy (i.e., property, utility)
+    // if it is -->  '3':  new PropertyState(stuff)
+    // otherwise do nothing and just move on to the next one
+
+  // return the object you've assembled iteratively
+
+  let propertyPositions = Object.keys(propertyData);
+  let data = {};
+
+  propertyPositions.forEach(function(position){
+    let propertyConfig = propertyData[position];
+
+    if (propertyConfig.price && !propertyConfig.isTax){
+      const name = propertyConfig.streetName || propertyConfig.name
+      const prop = new Property(name, position);
+      data[position] = prop;
+    }
+  })
+
+  return data;
+}
 
 /**
  * Data that describes where the game is at
  */
 export default class State {
+
+  @tracked
+  propertyStates = buildPropertyStates();
+
   // Initiate new player instances
   @tracked
   players = [new Player("Mike", "car"), new Player("Lisa", "dog")];
@@ -41,6 +74,9 @@ export default class State {
     const diceTot = this.dice.total;
     this.currentPlayer.moveToNextPosition(diceTot);
 
+    const pos = this.currentPlayer.positionOnBoard;
+    console.log('Player is at position ', pos);
+    console.log('Data: ', this.propertyStates[`${pos}`]);
     this.currentPlayer.takeAction();
 
     // if roll is NOT a double, player can't roll again
