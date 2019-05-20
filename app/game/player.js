@@ -16,10 +16,10 @@ export default class Player {
     @tracked
     doublesCount = 0;
 
+    // Only flip to "true" when player draws a "Get out of Jail" card
     @tracked
     isInJail = false;
 
-    // Only flip to "true" when player draws a "Get out of Jail" card
     @tracked
     numGetOutOfJailCard = 0;
 
