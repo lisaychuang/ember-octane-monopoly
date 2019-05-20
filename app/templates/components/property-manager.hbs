@@ -1,1 +1,10 @@
-{{yield}}
+
+
+{{#if @isShowing}}
+  {{#modal-dialog
+      targetAttachment="center"
+      translucentOverlay=true
+  }}
+    Oh hai there!
+  {{/modal-dialog}}
+{{/if}}
