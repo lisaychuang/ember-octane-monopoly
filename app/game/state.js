@@ -85,7 +85,7 @@ export default class State {
     const pos = this.currentPlayer.positionOnBoard;
     console.log('Player is at position ', pos);
     console.log('Data: ', this.propertyStates[`${pos}`]);
-    this.currentPlayer.takeAction();
+    this.takeAction();
 
     // if roll is NOT a double, player can't roll again
     if (!this.dice.isDouble) {
@@ -101,6 +101,60 @@ export default class State {
       this.currentPlayer.doublesCount++;
     }
   }
+
+  // Player can take action depending on where they land
+  takeAction(){
+    let currentPosition = this.currentPlayer.positionOnBoard;
+    let space = propertyData[currentPosition];
+
+    // player lands on a property| railroad | utilities space (STATE)
+    if (space.streetName) {
+        console.log("I'm on a property");
+    } else if (space.name.includes('Railroad')) {
+        console.log("I'm on a railroad");
+    } else if (space.name.includes('Electric')) {
+        console.log("I'm on Electric utility space");
+    } else if (space.name.includes('Waterworks')) {
+        console.log("I'm on WaterWorks utility space");
+    }
+    
+    // ✅ player lands on a TAX space
+    else if (space.name.includes('Income Tax')) {
+        this.currentPlayer.pay(space.price);
+
+    } else if (space.name.includes('Luxury Tax')) {
+        this.currentPlayer.pay(space.price);
+
+    } 
+    
+    // player lands on Community Chest | Chance space (STATE)
+    else if (space.name.includes('Community')) {
+        console.log("Pick a card from Comm chest deck");
+    } else if (space.name.includes('Chance')) {
+        console.log("Pick a card from Chance deck");
+    } 
+    
+    // player lands on spaces with NO actions
+    else if (space.name.includes('Jail')) {
+        console.log("I'm rotting in jail");
+    } else if (space.name.includes('Visiting')) {
+        console.log("I'm just visiting. Do nothing");
+    }  else if (space.name.includes('Parking')) {
+        console.log("I'm on free parking. Do nothing");
+    } 
+
+    // player lands on GO TO JAIL space
+    else if (space.name.includes('Go To')) {
+        console.log("Time to go to jail");
+        this.currentPlayer.goToJail();
+    } 
+    
+    // player lands on GO, collect salary
+    else if (currentPosition === 0) {
+        console.log("Time to collect salary $200");
+        this.currentPlayer.collect(200);
+    }
+}
 
   // IF in jail, player can get out of jail by:
 
